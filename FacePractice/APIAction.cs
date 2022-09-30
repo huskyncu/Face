@@ -15,8 +15,8 @@ namespace FacePractice
 {
     class APIAction
     {
-        private const string Subscription_Key = "d96057bda40c4af5ac740c047647172f";
-        private const string Group_ID = "face_practice";
+        private const string Subscription_Key = "9afa2810150f48d999afac58761d4773";
+        private const string Group_ID = "111_group_mike";
         private const string regModle = "recognition_03";
         private static HttpClient client;
         private static NameValueCollection queryString;
@@ -38,7 +38,7 @@ namespace FacePractice
             isSuccessed = false;
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Subscription_Key);
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "?" + queryString;
 
             HttpResponseMessage response;
 
@@ -62,7 +62,7 @@ namespace FacePractice
         public async Task<bool> CreatePerson(string inputname)
         {
             isSuccessed = false;
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons?" + queryString;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Subscription_Key);
             HttpResponseMessage response;
 
@@ -91,7 +91,7 @@ namespace FacePractice
                 queryString["userData"] = ImgUrl;
                 queryString["targetFace"] = targetFaceStr;
                 queryString["detectionModel"] = "detection_01";
-                var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personId + "/persistedFaces?" + queryString;
+                var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personId + "/persistedFaces?" + queryString;
 
                 HttpResponseMessage response;
 
@@ -116,7 +116,7 @@ namespace FacePractice
 
         public async Task<List<PersonObj>> IdentifyFace(string ImgUrl)
         {
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/identify?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify?" + queryString;
             string targetFaceStr = await GetFaceID(ImgUrl);
             string[] faceIdsArr = targetFaceStr.Split(',');
             var jobj = new
@@ -164,7 +164,7 @@ namespace FacePractice
         public async Task<string> GetPersonByID(string personId, bool includePersistedFaceIds)
         {
             string resultStr = "";
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personId + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personId + "?" + queryString;
             var response = await client.GetAsync(uri);
             string result = await response.Content.ReadAsStringAsync();
             if (!result.Equals(""))
@@ -211,7 +211,7 @@ namespace FacePractice
             queryString["recognitionModel"] = regModle;
             queryString["returnRecognitionModel"] = "false";
             queryString["detectionModel"] = "detection_01";
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/detect?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?" + queryString;
 
             HttpResponseMessage response;
 
@@ -256,7 +256,7 @@ namespace FacePractice
         public async Task<List<PersonObj>> ListAllPersons()
         {
             List<PersonObj> resultList = new List<PersonObj>();
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons?";
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons?";
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Subscription_Key);
 
             var response = await client.GetAsync(uri);
@@ -287,7 +287,7 @@ namespace FacePractice
         public async Task<bool> DeletePerson(string personid)
         {
             isSuccessed = false;
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "?" + queryString;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Subscription_Key);
             var response = await client.DeleteAsync(uri);
             Console.WriteLine("DeletePerson response : " + await response.Content.ReadAsStringAsync());
@@ -298,7 +298,7 @@ namespace FacePractice
 
         public async Task<string> GetFaceUrlByID(string personid, string inputPersistedFaceId)
         {
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "/persistedFaces/" + inputPersistedFaceId + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "/persistedFaces/" + inputPersistedFaceId + "?" + queryString;
             var response = await client.GetAsync(uri);
             string result = await response.Content.ReadAsStringAsync();
             if (!result.Equals(""))
@@ -313,7 +313,7 @@ namespace FacePractice
         public async Task<bool> DeletePersonsFace(string personid, string inputPersistedFaceId)
         {
             isSuccessed = false;
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "/persistedFaces/" + inputPersistedFaceId + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/persons/" + personid + "/persistedFaces/" + inputPersistedFaceId + "?" + queryString;
             var response = await client.DeleteAsync(uri);
             Console.WriteLine("DeletePersonsFace response : " + await response.Content.ReadAsStringAsync());
             isSuccessed = true;
@@ -324,14 +324,14 @@ namespace FacePractice
         {
             // Request parameters
             queryString["returnRecognitionModel"] = "true";
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "?" + queryString;
             var response = await client.GetAsync(uri);
             Console.WriteLine("GetPersonGroupStatus response : " + await response.Content.ReadAsStringAsync());
         }
         public static async Task<bool> Train(HttpClient inputClient)
         {
             isSuccessed = false;
-            var uri = "https://eastasia.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/train?" + queryString;
+            var uri = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/" + Group_ID + "/train?" + queryString;
 
             HttpResponseMessage response;
 

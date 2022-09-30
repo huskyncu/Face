@@ -21,7 +21,7 @@ namespace FacePractice
             picGrid.Visibility = Visibility.Hidden;
             create_person.Visibility = Visibility.Hidden;
             souce_box.ItemsSource = TraningSource.SouceBoxItems;
-            //deleteAllPersonAndFace();
+            deleteAllPersonAndFace();
         }
 
 
