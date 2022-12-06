@@ -30,7 +30,7 @@
                 <Border Margin="0,-1,0,0"/>
                 <Image  Name="pic_preview"  VerticalAlignment="Top" Stretch="Uniform" Height="343" Margin="6,0,8,0"/>
             </Grid>
-            <TextBox Name="IdentifyUrl" FontSize="20" Margin="156,408,226,6" Text="https://zjnews.zjol.com.cn/ztjj/2017sjdzt/sjdqmtbd/201710/W020171025690874672386.jpg" />
+            <TextBox Name="IdentifyUrl" FontSize="20" Margin="156,408,226,6" Text="https://media.zenfs.com/zh-tw/chinatimes.com.tw/ab9c2f5ec395798913f8b0204b94a615" TextChanged="IdentifyUrl_TextChanged" />
 
             <Label Content="Preview" FontSize="20" Margin="38,10,654,409" />
             <Label Content="Detect Info :" FontSize="20" Margin="579,119,86,293" />

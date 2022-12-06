@@ -55,7 +55,14 @@ namespace FacePractice
                                 Thread.Sleep(5000);
                             }
                             break;
-                        
+                        case 1:
+                            foreach (string url in TraningSource.zhiyu)
+                            {
+                                Task<bool>.Run(() => apiAct.AddFace(personID, url));
+                                Thread.Sleep(5000);
+                            }
+                            break;
+
 
                     }
                 }
@@ -170,6 +177,11 @@ namespace FacePractice
         }
 
         private void souce_box_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void IdentifyUrl_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
         }

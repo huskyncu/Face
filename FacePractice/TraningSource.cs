@@ -18,9 +18,17 @@ namespace FacePractice
             "https://www.1242.com/lf/asset/uploads/2017/08/Xi_Jinping_2016a.jpg"
         };
 
+        public static readonly string[] zhiyu = new string[] {
+            "https://www.upmedia.mg/upload/article/20221202121806181178.png",
+            "https://s.newtalk.tw/album/news/802/62f891b1537e6.jpg",
+            "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA142YY8.img?h=315&w=600&m=6&q=60&o=t&l=f&f=jpg&x=357&y=192",
+            "https://4gtvimg.4gtv.tv/4gtv-Image/Production/Article/2022092605000027/202209260602038527.jpg",
+            "https://media.zenfs.com/ko/setn.com.tw/41a429564c4fd7bcae7b5ac831f44176"
+        };
 
 
-        private static readonly string[] souceBoxItems = {"習近平" };
+
+        private static readonly string[] souceBoxItems = {"習近平","陳紫渝"};
 
         public static string[] SouceBoxItems => souceBoxItems;
     }
