@@ -128,7 +128,6 @@ DecteFace resultStr : female,22
     GetFaceByID response : {"persistedFaceId":"eab94c9c-6cd5-46f8-99fb-ef601f81dcdf","userData":"https://www.1242.com/lf/asset/uploads/2017/08/Xi_Jinping_2016a.jpg"}
     GetFaceByID response : {"persistedFaceId":"f1ea4408-057f-488a-a81b-8cafd66ffcfa","userData":"https://news.1242.com/wp-content/uploads/2017/10/jpp025321783a-1.jpg"}
     GetFaceByID response : {"persistedFaceId":"f43ca084-8723-4152-a65f-4a9735db882c","userData":"https://zjnews.zjol.com.cn/ztjj/2017sjdzt/sjdqmtbd/201710/W020171025690874672386.jpg"}
-    0x5140 執行緒以返回碼 0 (0x0) 結束。
     ```
 
 <!--
